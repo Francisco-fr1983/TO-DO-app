@@ -2,7 +2,7 @@
  
 Olá este projeto foi desenvolvido em Kotlin, aplicativo para adicionar tarefas ou lembretes do dia a  dia.
 
-Veja o video do aplicativo To do =>  https://www.youtube.com/watch?v=TG_Zb3A3q2U
+Vídeo do aplicativo Todo. .[Video do aplicativo To Do](https://youtu.be/TG_Zb3A3q2U)
 
 Veja a tela do aplicativo.
 
