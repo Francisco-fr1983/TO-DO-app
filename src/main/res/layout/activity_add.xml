@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#987C51"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Criar Tarefas"
+        android:background="#673AB7"
+        app:navigationIcon="@drawable/ic_baseline_navigate_before_24"
+        android:textStyle="bold"/>
+    <!--Vamos usar um componente chamado Guideline, para deixar avastado dos cantos-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/Guide_start"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/Guide_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="32dp"/>
+    <!--Para input de text vamos usar textInputLayout-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/title"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/Guide_start"
+        android:layout_width="0dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/tarefas_lembretes"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="@id/Guide_end"
+        android:layout_height="wrap_content">
+        <!--E dentro dele vamos criar o text editavel com InputEditText-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descricao"
+        android:layout_width="0dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/Guide_start"
+        app:layout_constraintEnd_toEndOf="@id/Guide_end"
+        android:layout_marginTop="10dp"
+        android:hint="@string/descricao"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content">
+        <!--Para poder editar o Input Layout, vamos criar o textEdit-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/data"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="@string/data"
+        app:layout_constraintEnd_toStartOf="@+id/hora"
+        app:layout_constraintStart_toStartOf="@id/Guide_start"
+        app:layout_constraintTop_toBottomOf="@id/descricao"
+        app:layout_constraintBottom_toBottomOf="@id/hora"
+        app:startIconDrawable="@drawable/ic_edit_calendar">
+        <!--Quando deixar o width em zero, podemos alinhar os inputs no mesmo lado-->
+        <!--Esse Style OutlinedBox, eleva o texto para cima ao digitar-->
+        <!--Para poder editar o Input Layout, vamos criar o textEdit-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/hora"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:hint="@string/hora"
+        app:layout_constraintEnd_toEndOf="@id/Guide_end"
+        app:layout_constraintStart_toEndOf="@id/data"
+        app:layout_constraintTop_toTopOf="@id/data"
+        app:layout_constraintBottom_toBottomOf="@id/data"
+        app:startIconDrawable="@drawable/ic_time">
+        <!--StartIconDrawable colocar o icones nas caixas, ic: time calendario e etc-->
+        <!--Esse Style OutlinedBox, eleva o texto para cima ao digitar-->
+        <!--Para poder editar o Input Layout, vamos criar o textEdit-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancelar"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="@id/Guide_start"
+        app:layout_constraintEnd_toEndOf="@id/Guide_end"
+        app:layout_constraintBottom_toTopOf="@id/criar"
+        android:text="@string/cancelar"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/criar"
+        app:layout_constraintStart_toStartOf="@id/Guide_start"
+        app:layout_constraintEnd_toEndOf="@id/Guide_end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:textStyle="bold"
+        android:text="@string/criar_tarefa"
+        android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content" />
+    <!--TextAllCaps=false deixa as letras em minuscula.-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
